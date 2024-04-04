@@ -1,0 +1,1 @@
+from braintumour_api.app import app

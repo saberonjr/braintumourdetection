@@ -1,35 +1,74 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: 'Build and deploy Python app to Azure Web App: braintumourdetectionapi'
+#name: 'Build and deploy Python app to Azure Web App: braintumourdetectionapi'
+#
+#on:
+#  push:
+#    branches:
+#    - main
+#  workflow_dispatch:
+#
+#jobs:
+#  build-and-deploy:
+#    runs-on: ubuntu-latest
+#    
+#    steps:
+#    - uses: actions/checkout@v2
+#
+#    - name: Set up Python version
+#      uses: actions/setup-python@v1
+#      with:
+#        python-version: '3.11'
+#    
+#    - name: Build using AppService-Build
+#      uses: azure/appservice-build@v2
+#      with:
+#        platform: python
+#        platform-version: '3.11'
+#    
+#    - name: 'Deploy to Azure Web App'
+#      uses: azure/webapps-deploy@v2
+#      with: 
+#        app-name: 'braintumourdetectionapi'
+#        slot-name: 'production'
+#        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8f92d030eecf41aca148cca7da65e861 }}
+#
+
+name: Deploy Brain Tumour API to Azure Web App
 
 on:
   push:
     branches:
-    - main
-  workflow_dispatch:
+      - main  # Set your default branch here
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python version
-      uses: actions/setup-python@v1
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        python-version: '3.11'
-    
-    - name: Build using AppService-Build
-      uses: azure/appservice-build@v2
-      with:
-        platform: python
-        platform-version: '3.11'
-    
-    - name: 'Deploy to Azure Web App'
+        python-version: '3.x'  # Set to your Python version
+
+    - name: Install dependencies
+      run: |
+        cd flask_api  # Change to your subfolder with Flask app
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Zip the application
+      run: |
+        cd flask_api  # Change to your subfolder with Flask app
+        zip -r ../deploy.zip .  # Create a zip including all files in the subfolder
+
+    - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
-      with: 
-        app-name: 'braintumourdetectionapi'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8f92d030eecf41aca148cca7da65e861 }}
+      with:
+        app-name: 'braintumourapi'  # Your Azure Web App name
+        slot-name: 'production'  # Optional: deploy to a specific slot
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: './deploy.zip'

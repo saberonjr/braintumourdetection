@@ -46,4 +46,4 @@ def detect():
     return send_file(img_bytes, mimetype='image/png')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.254.101')
+    app.run(debug=True, host='192.168.254.129')

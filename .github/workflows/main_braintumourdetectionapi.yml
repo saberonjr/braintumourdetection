@@ -57,6 +57,8 @@ jobs:
     - name: Install dependencies
       run: |
         cd flask_api  # Change to your subfolder with Flask app
+        python -m venv .venv
+        source .venv/bin/activate
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 

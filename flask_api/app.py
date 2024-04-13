@@ -25,6 +25,10 @@ def detect_objects(image):
 
     return img_encoded
 
+@app.route('/', methods=['GET'])
+def home():
+    return "<p>Hello world</p>"
+
 @app.route('/detect', methods=['POST'])
 def detect():
     if 'image' not in request.files:

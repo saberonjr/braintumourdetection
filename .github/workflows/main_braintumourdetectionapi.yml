@@ -40,7 +40,7 @@ name: Deploy Brain Tumour API to Azure Web App
 on:
   push:
     branches:
-      - main  # Set your default branch here
+      - main222  # Set your default branch here
 
 jobs:
   build-and-deploy:

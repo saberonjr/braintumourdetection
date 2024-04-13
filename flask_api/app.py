@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 # Load the YOLO model
 model = YOLO('yolo_50eoch.pt')
+# model = YOLO('yolov5s.pt')
 
 def detect_objects(image):
     # Run inference on the input image

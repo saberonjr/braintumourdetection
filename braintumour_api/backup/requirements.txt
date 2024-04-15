@@ -1,0 +1,7 @@
+Flask
+opencv-python-headless
+numpy
+ultralytics
+flask_cors
+gunicorn
+Werkzeug==2.2.2

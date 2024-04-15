@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:image_picker/image_picker.dart';
 
 import 'result.dart';
@@ -42,26 +41,30 @@ class _UploadBodyState extends State<UploadBody> {
   Future<void> _uploadImage() async {
     if (_filePath == null) return;
 
-    Uri apiUrl = Uri.parse('http://192.168.254.129:5000/detect');
+    Uri apiUrl = Uri.parse(
+        'http://192.168.254.129:8000/detect'); // Change this to API url or when run locally change the ip address
 
-    var request = http.MultipartRequest('POST', apiUrl);
-    request.files.add(await http.MultipartFile.fromPath('image', _filePath!));
+    try {
+      var request = http.MultipartRequest('POST', apiUrl);
+      request.files.add(await http.MultipartFile.fromPath('file', _filePath!));
 
-    var streamedResponse = await request.send();
+      var response = await request.send();
 
-    if (streamedResponse.statusCode == 200) {
-      // Read the response stream as bytes
-      var imageData = await streamedResponse.stream.toBytes();
-
-      // Navigate to the result page and pass the image data
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ResultPage(imageData: imageData),
-        ),
-      );
-    } else {
-      print('Failed to upload image: ${streamedResponse.statusCode}');
+      if (response.statusCode == 200) {
+        var imageData = await response.stream.toBytes();
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ResultPage(imageData: imageData),
+          ),
+        );
+      } else {
+        print('Failed to upload image: ${response.statusCode}');
+        // Print response body for debugging
+        print(await response.stream.bytesToString());
+      }
+    } catch (e) {
+      print('Error uploading image: $e');
     }
   }
 

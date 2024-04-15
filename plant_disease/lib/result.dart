@@ -12,7 +12,7 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       appBar: null,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/group11.png'), // Background image
             fit: BoxFit.cover, // Cover the entire screen

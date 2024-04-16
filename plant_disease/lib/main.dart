@@ -61,7 +61,7 @@ class BodyPage extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(top: 15.0)),
               const Center(
                 child: Text(
-                  'Detect, Grow',
+                  'LeafLens by',
                   style: TextStyle(
                     fontFamily: 'Open-Sans',
                     fontWeight: FontWeight.w900,
@@ -72,7 +72,7 @@ class BodyPage extends StatelessWidget {
               ),
               const Center(
                 child: Text(
-                  'And Shield',
+                  'VerdeTech',
                   style: TextStyle(
                     fontFamily: 'Open-Sans',
                     fontWeight: FontWeight.w900,
@@ -81,12 +81,12 @@ class BodyPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 25.0)),
+              const Padding(padding: EdgeInsets.only(top: 20.0)),
               const Center(
                 child: SizedBox(
                   width: 284,
                   child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eleifend purus et tortor luctus efficitur. Ut tincidunt scelerisque lectus vel imperdiet.',
+                    'An innovative plant disease detection and segmentation solution utilising cutting-edge computer version techniques',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Open-Sans',
@@ -96,7 +96,7 @@ class BodyPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 35.0)),
+              const Padding(padding: EdgeInsets.only(top: 30.0)),
               SizedBox(
                 width: 174.0,
                 height: 60.0,

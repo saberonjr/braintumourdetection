@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:braintumor/upload_img.dart';
+import 'package:leaflens/upload_img.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Plant Disease App',
+      title: 'LeafLens',
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 255, 255, 255)),
@@ -61,7 +61,7 @@ class BodyPage extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(top: 15.0)),
               const Center(
                 child: Text(
-                  'Detect, Grow',
+                  'LeafLens',
                   style: TextStyle(
                     fontFamily: 'Open-Sans',
                     fontWeight: FontWeight.w900,
@@ -72,7 +72,7 @@ class BodyPage extends StatelessWidget {
               ),
               const Center(
                 child: Text(
-                  'And Shield',
+                  'by VerdeTech',
                   style: TextStyle(
                     fontFamily: 'Open-Sans',
                     fontWeight: FontWeight.w900,
@@ -86,7 +86,7 @@ class BodyPage extends StatelessWidget {
                 child: SizedBox(
                   width: 284,
                   child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eleifend purus et tortor luctus efficitur. Ut tincidunt scelerisque lectus vel imperdiet.',
+                    'Plant disease object detection and classification using machine learning',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Open-Sans',

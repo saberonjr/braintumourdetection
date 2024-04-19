@@ -12,7 +12,7 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       appBar: null,
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/group11.png'), // Background image
             fit: BoxFit.cover, // Cover the entire screen
@@ -31,7 +31,7 @@ class ResultPage extends StatelessWidget {
                     fontFamily: 'Open-Sans',
                     fontWeight: FontWeight.w900,
                     color: Color.fromARGB(255, 60, 130, 84),
-                    fontSize: 30.0,
+                    fontSize: 24.0,
                   ),
                 ),
               ),
@@ -41,15 +41,23 @@ class ResultPage extends StatelessWidget {
                 child: Column(
                   children: [
                     const Text(
-                      'Plant Name: N/A', // to be followed, model not ready for returning the name of the prediction
+                      'The scan shows that it has:',
+                      style: TextStyle(
+                        fontFamily: 'Open-Sans',
+                        color: Color.fromARGB(255, 175, 121, 37),
+                        fontSize: 15.0,
+                      ),
+                    ),
+                    const Text(
+                      'N/A', // To be followed, model not ready for returning the result
                       style: TextStyle(
                         fontFamily: 'Open Sans',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 175, 121, 37),
                         fontSize: 20.0,
                       ),
                     ),
-                    const SizedBox(height: 5.0),
+                    const SizedBox(height: 35.0),
                     Container(
                       height: 250.0,
                       width: 250.0,
@@ -62,21 +70,6 @@ class ResultPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const Center(
-                child: SizedBox(
-                  width: 284,
-                  child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac nisl id libero dapibus finibus sit amet sed neque. Cras tempus eleifend hendrerit.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Open-Sans',
-                      color: Color.fromARGB(255, 175, 121, 37),
-                      fontSize: 15.0,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 35.0),
               SizedBox(
                 width: 290.0,
                 height: 46.0,
@@ -100,7 +93,7 @@ class ResultPage extends StatelessWidget {
               ),
               const SizedBox(height: 5.0),
               Container(
-                margin: const EdgeInsets.only(top: 15.0),
+                margin: const EdgeInsets.only(top: 80.0),
                 child: SizedBox(
                   width: 290.0,
                   height: 60.0,

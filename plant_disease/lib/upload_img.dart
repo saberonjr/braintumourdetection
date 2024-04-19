@@ -265,7 +265,6 @@ class _UploadBodyState extends State<UploadBody> {
                   const Text('— OR —',
                       style: TextStyle(
                         fontFamily: 'Open-Sans',
-                        fontWeight: FontWeight.w600,
                         fontSize: 15.0,
                         color: Color.fromARGB(255, 60, 130, 84),
                       )),

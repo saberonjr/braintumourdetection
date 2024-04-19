@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:typed_data';
-import 'package:braintumor/upload_img.dart';
+import 'package:brainscan/upload_img.dart';
 
 class ResultPage extends StatelessWidget {
   final Uint8List imageData;

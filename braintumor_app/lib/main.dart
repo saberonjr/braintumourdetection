@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:braintumor/upload_img.dart';
+import 'package:brainscan/upload_img.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Isaac App',
+      title: 'BrainScan',
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 255, 255, 255)),
@@ -69,7 +69,7 @@ class BodyPage extends StatelessWidget {
           ),
           const Center(
             child: Text(
-              'BRAIN TUMOR',
+              'BrainScan',
               style: TextStyle(
                 fontFamily: 'Nunito',
                 fontWeight: FontWeight.w900,
@@ -80,7 +80,7 @@ class BodyPage extends StatelessWidget {
           ),
           const Center(
             child: Text(
-              'DETECTION',
+              'by XTeam',
               style: TextStyle(
                 fontFamily: 'Nunito',
                 fontWeight: FontWeight.w900,

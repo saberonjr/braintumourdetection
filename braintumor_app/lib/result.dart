@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:typed_data';
+import 'package:braintumor/upload_img.dart';
 
 class ResultPage extends StatelessWidget {
   final Uint8List imageData;
@@ -93,7 +94,12 @@ class ResultPage extends StatelessWidget {
                 width: 290.0,
                 height: 60.0,
                 child: ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const UploadBody()))
+                  },
                   style: ElevatedButton.styleFrom(
                     side: const BorderSide(
                       width: 1.0,

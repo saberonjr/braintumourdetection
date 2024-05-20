@@ -59,7 +59,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Load the YOLO model
 try:
-    model = YOLO('yolo_50epoch.pt')  # Ensure the model filename is correct
+    model = YOLO('best.pt')  # Ensure the model filename is correct
     
 except Exception as e:
     logging.error(f"Failed to load model: {e}")

@@ -1,8 +1,10 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 
 import 'result.dart';
 
@@ -40,7 +42,7 @@ class _UploadBodyState extends State<UploadBody> {
     if (_filePath == null) return;
 
     Uri apiUrl = Uri.parse(
-        'http://192.168.254.129:8000/detect'); // Change this to API url or when run locally change the ip address
+        'http://192.168.254.173:8000/detect'); // Change this to API url or when run locally change the ip address
 
     try {
       var request = http.MultipartRequest('POST', apiUrl);
@@ -63,6 +65,18 @@ class _UploadBodyState extends State<UploadBody> {
       }
     } catch (e) {
       print('Error uploading image: $e');
+    }
+  }
+
+  Future<void> _pickImageFromCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? pickedImage =
+        await _picker.pickImage(source: ImageSource.camera);
+
+    if (pickedImage != null) {
+      setState(() {
+        _filePath = pickedImage.path;
+      });
     }
   }
 
@@ -202,6 +216,60 @@ class _UploadBodyState extends State<UploadBody> {
                       children: [
                         Image(
                           image: AssetImage('assets/images/upload.png'),
+                          height: 60.0,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Text(
+                          'Click to browse images',
+                          style: TextStyle(
+                              fontFamily: 'Nunito',
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.grey),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              const SizedBox(height: 30.0),
+              if (_filePath == null)
+                const Text('— OR —',
+                    style: TextStyle(
+                      fontFamily: 'Open-Sans',
+                      fontSize: 15.0,
+                      color: Color.fromARGB(255, 54, 215, 183),
+                    )),
+              const SizedBox(height: 30.0),
+              if (_filePath == null)
+                ElevatedButton(
+                  onPressed: _pickImageFromCamera,
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                  child: Container(
+                    height: 196.0,
+                    width: 290.0,
+                    decoration: const BoxDecoration(
+                      border: DashedBorder.fromBorderSide(
+                        dashLength: 5,
+                        side: BorderSide(
+                          color: Color.fromARGB(255, 96, 96, 96),
+                          width: 1,
+                        ),
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          image: AssetImage('assets/images/camera.png'),
                           height: 60.0,
                           width: 60,
                         ),

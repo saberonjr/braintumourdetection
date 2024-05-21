@@ -38,16 +38,8 @@ class ResultPage extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Nunito',
                       color: Color.fromARGB(255, 54, 215, 183),
-                      fontSize: 15.0,
-                    ),
-                  ),
-                  const Text(
-                    'N/A', // To be followed, model not ready for returning the result
-                    style: TextStyle(
-                      fontFamily: 'Nunito',
-                      fontWeight: FontWeight.w900,
-                      color: Color.fromARGB(255, 54, 215, 183),
-                      fontSize: 20.0,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18.0,
                     ),
                   ),
                   const SizedBox(height: 35.0),

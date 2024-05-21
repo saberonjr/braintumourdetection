@@ -270,14 +270,14 @@ class _UploadBodyState extends State<UploadBody> {
                       children: [
                         Image(
                           image: AssetImage('assets/images/camera.png'),
-                          height: 60.0,
-                          width: 60,
+                          height: 40.0,
+                          width: 40,
                         ),
                         SizedBox(
                           height: 20.0,
                         ),
                         Text(
-                          'Click to browse images',
+                          'Click to open camera',
                           style: TextStyle(
                               fontFamily: 'Nunito',
                               fontSize: 15.0,
